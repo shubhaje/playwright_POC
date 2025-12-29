@@ -1,2 +1,3 @@
 pytest-playwright
-google-generativeai openai
+google-generativeai
+openai
