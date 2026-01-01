@@ -1,3 +1,5 @@
 pytest-playwright
+google-genai
+google-ai-generativelanguage
 google-generativeai
-openai
+genai
