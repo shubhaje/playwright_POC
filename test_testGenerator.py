@@ -5,23 +5,24 @@ from google import genai
 
 # ---------- CONFIG ----------
 api_key = os.getenv("GOOGLE_API_KEY")
+print(api_key)
 client = genai.Client(api_key=api_key)
 
 USER_STORY = """
-As a user, I want to log in with valid credentials
-so that I can access my dashboard.
+As a user, I want to log in with valid credentials to url https://rahulshettyacademy.com/loginpagePractise/# wit user-namerahulshettyacademy andpasswird- learning
+and test each field and menu submenus with positive and negative scenarios
 """
 
 # ---------- STEP 1: Generate Test Cases ----------
 def generate_test_cases(user_story):
-    model = "models/gemini-1.5-flash"
+    model = "models/gemini-2.5-flash"
     prompt = f"You are a senior QA. Generate test cases for: {user_story}"
     response = client.models.generate_content(model=model, contents=prompt)
     return response.text
 
 # ---------- STEP 2: Convert to Playwright ----------
 def convert_to_playwright(test_cases):
-    model = "models/gemini-1.5-flash"
+    model = "models/gemini-2.5-flash"
     prompt = f"Convert these to Playwright Python async code. Output ONLY code: {test_cases}"
     response = client.models.generate_content(model=model, contents=prompt)
     # Clean markdown if present
@@ -30,7 +31,7 @@ def convert_to_playwright(test_cases):
 # ---------- STEP 3: SELF-HEALING ENGINE ----------
 def fix_code_with_ai(bad_code, error_message):
     prompt = f"Fix this Playwright code.\nERROR: {error_message}\nCODE: {bad_code}\nReturn ONLY fixed code."
-    response = client.models.generate_content(model="models/gemini-1.5-flash", contents=prompt)
+    response = client.models.generate_content(model="models/gemini-2.5-flash", contents=prompt)
     return response.text.replace("```python", "").replace("```", "").strip()
 
 def execute_and_fix(initial_code, max_attempts=3):
