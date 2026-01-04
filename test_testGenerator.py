@@ -20,7 +20,7 @@ def generate_test_cases(user_story):
     response = client.models.generate_content(model=model, contents=prompt)
     return response.text
 
-# ---------- STEP 2: Convert to Playwright ----------
+# ---------- STEP 2: Convert to Playwright script----------
 def convert_to_playwright(test_cases):
     model = "models/gemini-2.5-flash"
     prompt = f"Convert these to Playwright Python async code. Output ONLY code: {test_cases}"
