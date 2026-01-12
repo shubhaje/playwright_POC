@@ -9,7 +9,8 @@ print(api_key)
 client = genai.Client(api_key=api_key)
 
 USER_STORY = """
-As a user, I want to log in with valid credentials to url https://rahulshettyacademy.com/loginpagePractise/# wit user-namerahulshettyacademy andpasswird- learning
+As a user I want to create ISO Pac.008 message with valid and invalid data and test each field with positive and negative scenarios
+As a user, I want to log in with valid credentials to url https://rahulshettyacademy.com/loginpagePractise/# with username rahulshettyacademy and password learning
 and test each field and menu submenus with positive and negative scenarios
 """
 
